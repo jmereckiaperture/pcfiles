@@ -22,3 +22,86 @@ The changes for Feb 2016 also made the account’s margin-eligibility based on sta
 
 From my standpoint, I don’t much mind how it works, but I do think that the margin calculations suffer from the common theme that there’s not enough information on the screen to tell exactly how the calculations are made.  The calculations can be anything that the business wants, but it should always be clear to the customer.  For example, the available CATW really could use a footnote next to it explaining that the account must keep a minimum 2000 net liq value to maintain margin eligibility because it holds a short spread.  Naturally if the account didn’t hold that short spread, then the CATW would be equal to the house cash excess.  
 
+
+
+
+**********
+
+
+This is brilliant, Jason! Thanks so much! 
+
+
+ET uses different calculations for all of the different buying power. They also distinguish between what kind of buying power PDT and non-PDT accounts are granted. 
+
+They also use “real time” margin equity (as opposed to start of day NLV, which is the correct way to do it) to allow or disallow spreads with requirements and short stock (like TM, they will allow debit spreads, which, as we all know, is wrong). I have pointed out to them the flaw using real-time, as you did below, and the confusion that will bring, but that’s how they do it.
+
+Here is their BP:
+
+Non-PDT
+
+Cash buying power         = MIN(SMA. House Excess)
+ONBP                                    =MIN(SMA * 2, House Excess * 4)
+DT BP                                    = N/A (they do not grant DT BP to non-PDT accounts)
+
+Back to margin BP
+
+In addition to the SMA and excess calcs, they have a 3rd determinant, they call it “Special Condition for <$2K”. 
+
+“Special Condition for <$2K”.
+
+IF account is <$2K,
+AND No option requirement or short MV stock exist,
+THEN
+                Margin BP = Type 1 cash + any cash credit (cash available for investment or margin balance)
+ELSE If account <$2K
+AND Option requirement or Short MV stock exist,
+THEN
+                Margin BP = Reg T Equity - $2,000
+
+So, ONBP is actually ONBP           =MIN(SMA * 2, House Excess * 4, special condition <$2K)
+
+Also, they will not allow an account to drop below $2,000 minimum margin equity.
+
+So, back to my example. In this case ET will display $1,200 for cash BP, and 4x house excess (we are assuming inflated SMA) or $8,800.
+
+So I hear you, that there is a disconnect in the buying power numbers (our accounts are used to ONBP = 2x cash BP) but that will be going away (in most accounts I may add, since they will be importing Apex SMA numbers).
+
+When an account has inflated SMA they will see margin BP = 4x house excess.
+……………………………
+
+PDT
+
+Cash buying power         = MIN(SMA. House Excess)
+ONBP                                    =MIN(SMA * 2, House Excess * 4)
+DT BP                                    = 4x NYSE minimum requirement 
+
+Take a look at this account:
+
+5QD34728 May
+
+OptionsHouse BP numbers
+
+Cash BP                                = $324,750.35 (equal to house excess)
+ONBP                                    = $649,500.70 (2x excess)
+DT BP                                    = $1,299,001.40 (4x excess)
+
+The account has SMA at Apex equal to $1,393,526.02. Also, this account is holding a large position in RUBI which has a 60% requirement and also a smaller position in LYG at 50%. NYSE minimum requirement is $607,635.69 less than house requirements.
+
+ET buying power numbers
+
+Cash BP                                = $324,750.35 (equal to house excess)
+ONBP                                    = $1,299,001.40 (equal to 4x house excess, which is less than 2x SMA)
+DT BP                                    = $3,729,544.16 (equal to 4x NYSE minimums)
+
+Pretty big differences! Our customers heads will be spinning!! Trust me on this, I’ve run the numbers, with the inflated Apex SMA, our accounts are going to see SIZABLE increases in ONBP, and obviously, day trading buying power. The non-PDT accounts will “lose” their day trading buying power, but the fact of the matter is most of them will see ONBP equal to their current 4x.
+
+In addition, the PDT accounts can use all of their day trading buying power to buy higher-requirement stocks. Let’s say this account wanted to buy more RUBI.
+
+He could spend all the day trading buying power to buy it! He doesn’t have to put up 60%, he can buy it at 25%.
+
+The non-PDT will have to put up 60%, so he could only use cash BP/.60 to determine how much he can spend.
+
+
+What do you think?
+
+
