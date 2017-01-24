@@ -1,0 +1,24 @@
+
+I’ll explain how things work now and then a little background.  I created the scenario you describe in account 4ZE87065 in prodfix. The account has
+
+3200 margin balance
+1000 option requirement 
+------
+2200 house cash excess and starting cash BP, and starting CATW
+4400 margin BP
+
+3200 margin RegT equity
+2300 net liq value
+300 actual CATW
+
+
+For buying power, the 2,200 is displayed for Cash BP. We do show a warning (see other screenshot) if the result of an order will being the account below 2000 RegT equity.  It’s not an order rejection, just a warning. 
+
+I do see what you mean about possibly displaying 1200 as the cash option buying power, but I have also heard some debate about that.  There’s a case made that the account actually has 2200 to spend, and that they should be allowed to spend it.  Also, people seem to prefer to have Margin BP always displayed as 2x Cash BP, and showing 1200 as cash BP would not change 4400 as margin BP, so that it would “look” strange.  Anyway, that’s why the warning message is there, because it allows the account to trade all of their excess, but still let them know the order is going to cause RegT equity to drop below 2000.  Presumably the account holder saw the warning message, and will liquidate something before the end of the day to bring the number back above 2000, or they will be okay with the min equity call. 
+
+Before the Feb 2016 changes, there were times when cash BP was less than one-half of margin BP, to try and preserve the 2000 RegT equity. And, margin-eligibility was based on RegT equity.  But there were ways that the account could still trade and fall below 2000 RegT equity, then all of the sudden their existing positions got margined at 100% and all the account’s buying power would get wiped out, until they liquidated enough options to bring the RegT equity above 2000 again. 
+
+The changes for Feb 2016 also made the account’s margin-eligibility based on starting net liq, not on real-time margin RegT equity.  That resolved the issue where accounts would have large swings in buying power if they were right around 2000 of RegT equity.  But that also made CATW different.  The available CATW is now intended to preserve 2000 of net liq, not equity.   The net liq value at the time of the screenshot was 2300, therefore the available CATW would be 300. Note that available CATW would change based on market prices through the day. 
+
+From my standpoint, I don’t much mind how it works, but I do think that the margin calculations suffer from the common theme that there’s not enough information on the screen to tell exactly how the calculations are made.  The calculations can be anything that the business wants, but it should always be clear to the customer.  For example, the available CATW really could use a footnote next to it explaining that the account must keep a minimum 2000 net liq value to maintain margin eligibility because it holds a short spread.  Naturally if the account didn’t hold that short spread, then the CATW would be equal to the house cash excess.  
+
