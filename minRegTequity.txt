@@ -25,7 +25,7 @@ From my standpoint, I don’t much mind how it works, but I do think that the marg
 
 
 
-**********
+********************** email 1
 
 
 This is brilliant, Jason! Thanks so much! 
@@ -103,5 +103,20 @@ The non-PDT will have to put up 60%, so he could only use cash BP/.60 to determi
 
 
 What do you think?
+
+
+********************** email 2
+
+My question was “why does ET not want PDT accounts to trade into DT calls?” (As you know, they do not allow a trader to exceed start of day DT BP, the customer sees the buying power, he just can’t use it.)
+
+Hi Bill 
+
+The answer to your question below has to do with the fact we always try to help clients avoid getting into a call situation before it occurs. As it is now, the only way to meet a DTC is through the deposit of new funds (or securities) and this is something that not all clients can satisfy. Although we try to preempt these calls, they do occur once in a while and I can tell you that clients hate it. So imagine the flood of complaints we would get if there is nothing in place to prevent these calls. Even with the Reg T override feature, we educate clients and tell them they cannot close positions opened as Reg T override, once in a while, they will disregard that rule and close positions they shouldn’t. I think educating our larger PDT population to have the same understanding would be a little bit more challenging. 
+
+The other reason has to with how our systems are set up and the additional risk we would be taking by allowing all PDT acct holders to also use their Reg T BP at will in PDT accts. Today the vetting of PDT accts is strictly driven off their PDT BP and because we always assume (or at least imply) they will close those positions Intraday,  the PDT BP will vet and charge the order only the exchange reqt even when there is a higher house req. For example a PDT acct trading TSLA (assume a 40% house reqt), will be charged only 25% and at the end of the day, the acct is automatically in House call. So this creates the problem of allowing clients overleverage themselves. 
+
+All that being said, I think the experience factor is the biggest problem. I also wonder what happens to the trade activity of clients who could not meet their DTC. Most likely it will decrease and if you have this at a larger scale, it may be more noticeable on DARTS. 
+
+I am eager to hear your arguments on this though ands also learn more about how you guys vet orders in PDT accts. Maybe I am missing some valuable insight to your treatment. 
 
 
